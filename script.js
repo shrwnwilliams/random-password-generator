@@ -22,14 +22,14 @@ return generatePassword()
 } else if (!passwordLength){
   alert("This number must be included and must be between 8 and 128.");
 return generatePassword()
-} else if (passwordLength )
+}
 var lowercaseOption = confirm("Do you want to use lowercase letters in your password?");
 var uppercaseOption = confirm("Do you want to use uppercase letters in your password?");
 var specialOption = confirm("Do you want to use special characters in your password?");
 var numericOption = confirm("Do you want to use numbers in your password?");
-console.log(passwordLength);
-console.log(lowercaseOption);
-console.log(uppercaseOption);
+
+if (!lowercaseOption + !uppercaseOption + !specialOption + !numericOption)
+
 
 // TODO: WRITE THE CODE THAT ASKS THE USER ABOUT THE PARAMETERS FOR THEIR PASSWORD
 // TODO: USE THOSE PARAMETERS TO GENERATE A NEW PASSWORD
