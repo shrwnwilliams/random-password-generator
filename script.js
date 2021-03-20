@@ -14,7 +14,7 @@ function writePassword() {
 
 
 }
-
+// begins the password generation by asking for the users preferred password length, prevents them from continuing if they don't choose a number or if they choose one less than 8 or greater than 128
 function generatePassword() {
 var selectedParameters = []
 var finalPassword = []
@@ -27,35 +27,31 @@ return generatePassword();
   alert("This number must be included and must be between 8 and 128.");
 return generatePassword();
 } else chooseParameters();
-
+// asks for the users preferred password parameters, selecting between uppercase and lowercase letters, numbers, and special characters. prevents the user from continuing with generation if they do not choose any parameters
 function chooseParameters(){
 var lowercaseOption = confirm("Do you want to use lowercase letters in your password?");
  if (lowercaseOption){
    selectedParameters = selectedParameters.concat(lowercaseLetters);
-  //  console.log(selectedParameters);
  }
 var uppercaseOption = confirm("Do you want to use uppercase letters in your password?");
 if (uppercaseOption){
   selectedParameters = selectedParameters.concat(uppercaseLetters);
-  // console.log(selectedParameters);
 }
 var specialOption = confirm("Do you want to use special characters in your password?");
 if (specialOption){
   selectedParameters = selectedParameters.concat(specialCharacters);
-  // console.log(selectedParameters);
 }
 var numericOption = confirm("Do you want to use numbers in your password?");
 if (numericOption){
-  selectedParameters = selectedParameters.concat(specialCharacters);
-  // console.log(selectedParameters);
+  selectedParameters = selectedParameters.concat(numericCharacters);
 }
 }
 if (selectedParameters.length === 0){
   alert("You must select at least one parameter for your password.");
-  return chooseParameters()
+  return chooseParameters();
 } else randomizePassword();
-// console.log(selectedParameters);
 
+// randomizes the password by selecting random numbers in the array created by their selected length and character selectors 
 function randomizePassword () {
   for (var i = 0; i < passwordLength; i++) {
   var randomizedPassword = selectedParameters[Math.floor(Math.random() * selectedParameters.length)];
